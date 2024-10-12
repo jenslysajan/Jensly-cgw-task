@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_Invoice</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Create Invoice</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/lightning/n/Create_Invoice?c__origin_record={!Order.Id}&amp;c__account={!Account.Id}&amp;c__invoice_date={!TODAY()}&amp;c__invoice_due_date={!Order.EndDate}&amp;c__child_relationship_name=&quot;OrderItems&quot;&amp;c__line_item_description=&quot;Description&quot;&amp;c__line_item_quantity=&quot;Quantity&quot;&amp;c__line_item_unit_price=&quot;UnitPrice&quot;</url>
+</WebLink>

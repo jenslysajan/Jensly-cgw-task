@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Parameters and Values">
+        <div class="slds-p-around_medium">
+            <table class="slds-table slds-table_bordered slds-table_striped">
+                <thead>
+                    <tr>
+                        <th class="slds-text-title_caps">Parameter</th>
+                        <th class="slds-text-title_caps">Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop through table data and render each row -->
+                    <template for:each={dataToDisplay} for:item="row">
+                        <tr key={row.param}>
+                            <td>{row.param}</td>
+                            <td>{row.value}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </lightning-card>
+</template>
