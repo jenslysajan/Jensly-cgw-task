@@ -1,23 +1,40 @@
 <template>
-    <lightning-card title="Parameters and Values">
-        <div class="slds-p-around_medium">
-            <table class="slds-table slds-table_bordered slds-table_striped">
-                <thead>
-                    <tr>
-                        <th class="slds-text-title_caps">Parameter</th>
-                        <th class="slds-text-title_caps">Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Loop through table data and render each row -->
-                    <template for:each={dataToDisplay} for:item="row">
-                        <tr key={row.param}>
-                            <td>{row.param}</td>
-                            <td>{row.value}</td>
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+    </template>
+    <template if:true={showTable}>
+        <lightning-card title="Parameters and Values">
+            <div class="slds-p-around_medium">
+                <table class="slds-table slds-table_bordered slds-table_striped">
+                    <thead>
+                        <tr>
+                            <th class="slds-text-title_caps">Parameter</th>
+                            <th class="slds-text-title_caps">Value</th>
                         </tr>
-                    </template>
-                </tbody>
-            </table>
-        </div>
-    </lightning-card>
+                    </thead>
+                    <tbody>
+                        <!-- Loop through table data and render each row -->
+                        <template for:each={dataToDisplayInTable} for:item="row">
+                            <tr key={row.param}>
+                                <td>{row.param}</td>
+                                <td>{row.value}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+            <div class="slds-align_absolute-center">
+                <lightning-button variant = "brand" label = "Show JSON" onclick={getDataAndDisplayInJSON}></lightning-button>
+            </div>
+        </lightning-card>
+    </template>
+    <template if:true={showJSON}>
+        <lightning-card title="JSON Data Display" icon-name="custom:custom63">
+            <div class="slds-p-around_medium">
+                <p>Data in JSON format:</p>
+                <pre>{jsonStringToDisplay}</pre>
+            </div>
+        </lightning-card>
+        
+    </template>
 </template>
